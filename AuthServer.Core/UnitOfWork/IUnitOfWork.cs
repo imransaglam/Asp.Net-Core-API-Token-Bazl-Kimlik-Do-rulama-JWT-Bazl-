@@ -4,6 +4,6 @@
     {
         //Tek seferde işlem gerçekleşsin
         Task CommitAsync();//asenkron
-        void Commit();  //senkron
+        void Commit();  //senkronG
     }
 }

@@ -15,3 +15,5 @@ C:\Users\ASUS\source\repos\AuthServer\AuthServer.Data\obj\Debug\net6.0\AuthServe
 C:\Users\ASUS\source\repos\AuthServer\AuthServer.Data\obj\Debug\net6.0\refint\AuthServer.Data.dll
 C:\Users\ASUS\source\repos\AuthServer\AuthServer.Data\obj\Debug\net6.0\AuthServer.Data.pdb
 C:\Users\ASUS\source\repos\AuthServer\AuthServer.Data\obj\Debug\net6.0\ref\AuthServer.Data.dll
+C:\Users\ASUS\source\repos\AuthServer\AuthServer.Data\bin\Debug\net6.0\AuthServer.Data.runtimeconfig.json
+C:\Users\ASUS\source\repos\AuthServer\AuthServer.Data\obj\Debug\net6.0\AuthServer.Data.genruntimeconfig.cache
