@@ -1,9 +1,10 @@
 ﻿namespace AuthServer.Core.UnitOfWork
 {
+    //Tek seferde işlem gerçekleşsin
     public interface IUnitOfWork
     {
-        //Tek seferde işlem gerçekleşsin
-        Task CommitAsync();//asenkron
-        void Commit();  //senkronG
+        Task CommmitAsync();//asenkron
+
+        void Commit();//senkron
     }
 }

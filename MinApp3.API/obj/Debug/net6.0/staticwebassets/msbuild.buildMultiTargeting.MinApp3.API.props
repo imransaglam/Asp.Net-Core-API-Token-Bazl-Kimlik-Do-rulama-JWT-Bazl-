@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\MinApp3.API.props" />
+</Project>

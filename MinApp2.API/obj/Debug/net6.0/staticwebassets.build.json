@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "QixRvnprjhEOwzsH4/wTr8kDM94x5u+QGgkxBMPE+qo=",
+  "Source": "MinApp2.API",
+  "BasePath": "_content/MinApp2.API",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}

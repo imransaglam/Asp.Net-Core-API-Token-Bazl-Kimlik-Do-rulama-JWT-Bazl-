@@ -9,17 +9,20 @@ namespace AuthServer.Data
     //Kullanıcı ile ilgili tüm dbsetler ıdentitydbcontextten geliyor
     public class AppDbContext : IdentityDbContext<UserApp, IdentityRole, string>
     {
-        public AppDbContext(DbContextOptions options) : base(options)
+        public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
+
         {
         }
         //Üyelik sistemi ile ilgili olmayan
-      public DbSet<Product> Products { get; set; }
-      public DbSet<UserRefreshToken> UserRefreshTokens { get; set; }
+        public DbSet<Product> Produts { get; set; }
+
+        public DbSet<UserRefreshToken> UserRefreshTokens { get; set; }
 
         //metodu şişirmemesi için herbir entity için configurasyon oluşturulucak.örn:product name 20 karakter olsun gibi
         protected override void OnModelCreating(ModelBuilder builder)
         {
             builder.ApplyConfigurationsFromAssembly(GetType().Assembly);
+
             base.OnModelCreating(builder);
         }
 

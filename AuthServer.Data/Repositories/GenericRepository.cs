@@ -10,7 +10,7 @@ namespace AuthServer.Data.Repositories
         //tablolar üzerinde işlem yapabilmek için
         private readonly DbSet<TEntity> _dbSet;
 
-        public GenericRepository(DbContext context)
+        public GenericRepository(AppDbContext context)
         {
             _context = context;
             _dbSet = context.Set<TEntity>();

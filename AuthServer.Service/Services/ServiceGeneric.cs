@@ -26,7 +26,7 @@ namespace AuthServer.Service.Services
             //gelen DTO entity çevir
             var newEntity = ObjectMapper.Mapper.Map<TEntity>(entity);
             await _genericRepository.AddAsync(newEntity);
-            await _unitOfWork.CommitAsync();//veritabanına kaydetti
+            await _unitOfWork.CommmitAsync();//veritabanına kaydetti
             var newDto = ObjectMapper.Mapper.Map<TDto>(newEntity);//entity'i DTO çevirdi
             return Response<TDto>.Success(newDto, 200);
 
@@ -56,7 +56,7 @@ namespace AuthServer.Service.Services
                 return Response<NoDataDto>.Fail("Id not found", 404, true);
             }
             _genericRepository.Remove(isExistEntity);
-            await _unitOfWork.CommitAsync();
+            await _unitOfWork.CommmitAsync();
             return Response<NoDataDto>.Success(204);
 
         }
@@ -70,7 +70,7 @@ namespace AuthServer.Service.Services
             }
             var updateEntity = ObjectMapper.Mapper.Map<TEntity>(entity);
             _genericRepository.Update(updateEntity);
-            await _unitOfWork.CommitAsync();
+            await _unitOfWork.CommmitAsync();
             return Response<NoDataDto>.Success(204);
         }
 

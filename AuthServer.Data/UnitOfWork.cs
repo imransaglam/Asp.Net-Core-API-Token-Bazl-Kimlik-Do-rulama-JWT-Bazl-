@@ -7,9 +7,9 @@ namespace AuthServer.Data
     {
         private readonly DbContext _context;
 
-        public UnitOfWork(DbContext context)
+        public UnitOfWork(AppDbContext appDbContext)
         {
-            _context = context;
+            _context = appDbContext;
         }
 
         public void Commit()
@@ -17,9 +17,9 @@ namespace AuthServer.Data
             _context.SaveChanges();
         }
 
-        public async Task CommitAsync()
+        public async Task CommmitAsync()
         {
-           await _context.SaveChangesAsync();
+            await _context.SaveChangesAsync();
         }
     }
 }

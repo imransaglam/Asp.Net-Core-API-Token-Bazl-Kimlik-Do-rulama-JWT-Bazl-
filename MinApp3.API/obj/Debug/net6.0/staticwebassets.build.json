@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "NFk8kGRz0NZY3vGgnx2ZAg2VfzzGcypT7UURjIayUQM=",
+  "Source": "MinApp3.API",
+  "BasePath": "_content/MinApp3.API",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}

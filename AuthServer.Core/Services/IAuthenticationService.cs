@@ -11,7 +11,7 @@ namespace AuthServer.Core.Services
         Task<Response<TokenDto>> CreateTokenByRefreshToken(string refreshToken);
         //Refresh Token'ı sonlandırma
         Task<Response<NoDataDto>> RevokeRefreshToken(string refreshToken);
-         
+
         //Client ile birlikte üyelik sistemi olmadan token almak
         Response<ClientTokenDto> CreateTokenByClient(ClientLoginDto clientLoginDto);
     }

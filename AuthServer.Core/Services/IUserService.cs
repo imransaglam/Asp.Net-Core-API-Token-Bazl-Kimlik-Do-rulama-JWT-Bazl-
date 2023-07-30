@@ -7,6 +7,6 @@ namespace AuthServer.Core.Services
     {
         Task<Response<UserAppDto>> CreateUserAsync(CreateUserDto createUserDto);
         //UserName ile user bilgilerini almak
-        Task<Response<UserAppDto>> GetUserByNameAsync(string userName );
+        Task<Response<UserAppDto>> GetUserByNameAsync(string userName);
     }
 }

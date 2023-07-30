@@ -6,11 +6,11 @@ using SharedLibrary.Dtos;
 
 namespace AuthServer.Service.Services
 {
-    public class Service : IUserService
+    public class UserService : IUserService
     {
         private readonly UserManager<UserApp> _userManager;
 
-        public Service(UserManager<UserApp> userManager)
+        public UserService(UserManager<UserApp> userManager)
         {
             _userManager = userManager;
         }

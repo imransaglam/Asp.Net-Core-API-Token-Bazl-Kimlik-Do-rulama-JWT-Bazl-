@@ -59,7 +59,7 @@ namespace AuthServer.Service.Services
                 userRefreshToken.Code=token.RefreshToken;
                 userRefreshToken.Expiration=token.RefreshTokenExpiration;
             }
-            await _unitOfWork.CommitAsync();
+            await _unitOfWork.CommmitAsync();
             return Response<TokenDto>.Success(token, 200);
 
         }
@@ -93,7 +93,7 @@ namespace AuthServer.Service.Services
             existRefreshToken.Code = tokenDto.RefreshToken;
             existRefreshToken.Expiration = tokenDto.RefreshTokenExpiration;
 
-            await _unitOfWork.CommitAsync();
+            await _unitOfWork.CommmitAsync();
 
             return Response<TokenDto>.Success(tokenDto, 200);
         }
@@ -106,7 +106,7 @@ namespace AuthServer.Service.Services
                 return Response<NoDataDto>.Fail("Refresh token not found", 404, true);
             }
             _userRefreshTokenService.Remove(existRefreshToken);
-            await _unitOfWork.CommitAsync();
+            await _unitOfWork.CommmitAsync();
             return Response<NoDataDto>.Success(200);
         }
     }
