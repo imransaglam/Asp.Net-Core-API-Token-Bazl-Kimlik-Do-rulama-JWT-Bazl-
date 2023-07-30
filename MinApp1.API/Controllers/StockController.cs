@@ -4,11 +4,14 @@ using System.Security.Claims;
 
 namespace MinApp1.API.Controllers
 {
-    [Authorize]
+  
     [Route("api/[controller]")]
     [ApiController]
     public class StockController : ControllerBase
     {
+
+        [Authorize(Roles = "admin",Policy = "AnkaraPolicy")]
+        [Authorize(Policy = "AgePolicy")]
         [HttpGet]   
         public IActionResult GetStock() 
         {

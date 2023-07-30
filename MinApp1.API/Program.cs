@@ -1,3 +1,5 @@
+using Microsoft.AspNetCore.Authorization;
+using MinApp1.API.Requirements;
 using SharedLibrary.Configurations;
 using SharedLibrary.Extensions;
 
@@ -9,6 +11,21 @@ builder.Services.Configure<CustomTokenOption>(builder.Configuration.GetSection("
 var tokenOptions = builder.Configuration.GetSection("TokenOption").Get<CustomTokenOption>();
 
 builder.Services.AddCustomTokenAuth(tokenOptions);
+
+builder.Services.AddSingleton<IAuthorizationHandler,BirthDayRequirementHandler >();
+
+builder.Services.AddAuthorization(opts =>
+{
+    opts.AddPolicy("AnkaraPolicy", policy =>
+    {
+        policy.RequireClaim("city", "ankara");
+    });
+
+    opts.AddPolicy("AgePolicy", policy =>
+    {
+        policy.Requirements.Add(new BirthDayRequirement(18));
+    });
+});
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle

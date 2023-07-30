@@ -32,8 +32,10 @@ namespace AuthServer.Service.Services
         }
 
         //Üyelik sistemi gerektiren bir token oluşturulduğunda paylodu doldurmak istediğimizde bu claim kullanıcaz
-        private IEnumerable<Claim> GetClaims(UserApp userApp, List<string> audiences)
+        private async Task<IEnumerable<Claim>> GetClaims(UserApp userApp, List<string> audiences)
         {
+
+            var userRoles=await _userManager.GetRolesAsync(userApp);
             //tokenın payloadında olmasını istediğimiz tüm dataları claim olarak eklendi
             var userList = new List<Claim>()
             {
@@ -41,10 +43,13 @@ namespace AuthServer.Service.Services
                  new Claim(JwtRegisteredClaimNames.Email,userApp.Email),
                  new Claim(ClaimTypes.Name,userApp.UserName),
                  new Claim(JwtRegisteredClaimNames.Jti,Guid.NewGuid().ToString()),
+                 new Claim("city",userApp.City),
+                 new Claim("birthDate",userApp.BirthDate.ToShortDateString())
 
             };
 
             userList.AddRange(audiences.Select(x => new Claim(JwtRegisteredClaimNames.Aud, x)));
+            userList.AddRange(userRoles.Select(x => new Claim(ClaimTypes.Role, x)));
             return userList;
 
 
@@ -77,7 +82,7 @@ namespace AuthServer.Service.Services
                 expires: accessTokenExpiration,
                 //Verilen dakika öncesinde geçersiz olmasın
                 notBefore: DateTime.Now,
-                claims: GetClaims(userApp, _tokenOption.Audience),
+                claims: GetClaims(userApp, _tokenOption.Audience).Result,
                 signingCredentials: signingCredentials);
 
             var handler = new JwtSecurityTokenHandler();
